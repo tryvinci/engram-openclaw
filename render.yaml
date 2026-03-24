@@ -3,6 +3,9 @@ services:
     name: openclaw
     runtime: docker
     plan: starter
+    dockerfilePath: apps/engram-openclaw/Dockerfile
+    dockerContext: apps/engram-openclaw
+    dockerCommand: node openclaw.mjs gateway --allow-unconfigured --bind lan --port 8080
     healthCheckPath: /health
     envVars:
       - key: OPENCLAW_GATEWAY_PORT
